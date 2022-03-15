@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="form">
+    <form method="POST">
+        <div class="text">Tracker Name</div><input type="text" placeholder="Tracker name" name="name">
+        <div class="text">Input type</div>
+        <select name="options" id="options">
+            <option value="Numerical">Numerical</option>
+            <option value="Multiple Choice">Multiple Choice</option>
+            <option value="Timestamp">Timestamp</option>
+        </select>
+        <div class="text">Settings</div><input type="text" placeholder="Only for MCQ type" name="settings"><br><br>
+        <input type="submit" value="Add">
+    </form>
+</div>
+{% endblock %}

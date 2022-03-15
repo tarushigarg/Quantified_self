@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="text">Hello, {{session.get('username')}}</div>
+    <div class="centered_block">
+        <table>
+            <tr>
+                <th><div class="text">Name</div></th>
+                <th><div class="text">Last tracked</div></th>
+                <th><div class="text">New Event</div></th>
+                <th><div class="text">Actions</div></th>
+            </tr>
+        {% for tracker in trackers %}
+            <tr>
+                <td><div class="text"><a href="/trackers/{{tracker.id}}/view">{{tracker.name}}</a></div></td>
+                <td><div class="text">yesterday</div></td>
+                <td><div class="text"><a href="/trackers/{{tracker.id}}/records/add">+</a></div></td>
+
+                <td><div class="text"><a href="/trackers/{{tracker.id}}/edit">Edit</a></div>
+                    <div class="text"><a href="/trackers/{{tracker.id}}/delete">Delete</a></div></td>
+            </tr>
+        {% endfor %}
+        </table>
+        
+        <a href="/trackers/add"><div id="box" class="test">ADD</div></a>
+    </div>
+{% endblock %}

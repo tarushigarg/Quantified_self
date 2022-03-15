@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="form">
+    <form method="POST">
+        {% if tracker.input_type == "Numerical" %}
+        <div class="text">Value</div><input name="value" placeholder="Value...">
+        {% elif tracker.input_type == "Multiple Choice" %}
+        <div class="text">Value</div>
+        <select name="value">
+            {% for i in range(options|length) %}
+            <option name="{{options[i]}}">{{options[i]}}</option>
+            {% endfor %}
+        </select>
+        {% else %}
+        <div class="text">Value</div><input name="value" placeholder="Value...">
+        {% endif %}
+        <div class="text">Details</div><input type="text" placeholder="Details!" name="details">
+        <br><br>
+        <input type="submit" value="Add!">
+    </form>
+</div>
+{% endblock %}
